@@ -6,6 +6,14 @@ import { styles } from './styles'
 
 const movieInfoUrl = "http://www.omdbapi.com/?apikey=490ffdb4&i="
 
+function MovieImage({poster}) {
+  return (
+    <View style={styles.imageContainer}>
+      <Image style={styles.imageStyle} source={{uri: poster}} />
+    </ View>
+  )
+}
+
 function MovieInfoData({state}) {
   return(
     <View style={styles.infoContainer}>
@@ -49,14 +57,14 @@ class MovieRatingsInfo extends Component {
   render() {
     if (this.props.ratings != null) {
       return(
-        <View style={styles.container}>
+        <View style={styles.ratingContainer}>
           <Text style={styles.info}>Ratings:</Text>
           { this.props.ratings.map((rating, index) => <RatingInfo key={index} rating={rating} />) }
         </View>
       )
     } else {
       return(
-        <View style={styles.container}>
+        <View style={styles.ratingContainer}>
           <Text style={styles.info}>Ratings: Loading...</Text>
         </ View>
       )
@@ -136,14 +144,10 @@ class MovieInfoPage extends Component {
     if (this.state.loaded) {
       return (
         <View style={styles.container}>        
-          <View style={styles.imageContainer}>
-            <Image style={styles.imageStyle} source={{uri: this.state.poster}} />
-          </View>
-            
+          <MovieImage poster={this.state.poster} />
           <MovieInfoData state={this.state} />
-
           <MovieRatingsInfo ratings={this.state.ratings} />
-        </View>
+        </ View>
       )
     } else {
       return (

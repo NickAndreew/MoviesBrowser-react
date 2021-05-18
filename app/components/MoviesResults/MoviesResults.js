@@ -62,9 +62,12 @@ function MovieResults ({ data, totalResults, error, page, uuidFunction, loadMore
           <Text>Hello, I am your component MovieResults!</Text>
           <Text>There are {totalResults} results :))</Text>
           <MovieResultsList data={data} page={page} uuidFunction={uuidFunction} />
-          <Button 
-            title="Load more results.."
-            onPress={() => loadMoreResults()} />
+          <View style={styles.buttonContainer}>
+            <Button style={styles.buttonLoadMore}
+              title="Load more results.."
+              color="gray"
+              onPress={() => loadMoreResults()} />
+          </ View>
         </View>
       )
     } else {
@@ -75,7 +78,7 @@ function MovieResults ({ data, totalResults, error, page, uuidFunction, loadMore
           <MovieResultsList data={data} page={page} uuidFunction={uuidFunction} />
         </View>
       )
-    } 
+    }
   } else if (error !== null && error !== undefined) {
     return (
       <View style={styles.container}>

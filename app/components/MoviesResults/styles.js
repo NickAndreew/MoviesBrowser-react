@@ -2,9 +2,7 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
-    height: '100%',
-    margin: 20,
+    padding: 5,
     resizeMode: 'contain'
   }, 
   itemInfoContainer: {
@@ -12,13 +10,18 @@ const styles = StyleSheet.create({
   },
   infoContainer: {
     width: '65%',
-    margin: 20,
+    padding: 5,
   },
   buttonContainer: {
-    margin: 20,
+    padding: 5,
+  },
+  buttonLoadMore: {
+    padding: 20,
+    
+    
   },
   item: {
-    padding: 20,
+    padding: 5,
     flexDirection: 'column'
   },
   posterCotainer: {
@@ -32,17 +35,29 @@ const styles = StyleSheet.create({
     resizeMode: 'contain'
   }, 
   title: {
-    margin: 20,
+    paddingTop: 20,
+    paddingBottom: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
   },
   year: {
-    margin: 20,
+    paddingTop: 20,
+    paddingBottom: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
   }, 
   imdbID:{
-    margin: 20,
+    paddingTop: 20,
+    paddingBottom: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
   },
   type: {
-    margin: 20,
-  }
+    paddingTop: 20,
+    paddingBottom: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
+  },
 });
 
 export { styles };

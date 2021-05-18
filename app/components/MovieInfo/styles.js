@@ -2,9 +2,8 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 0,
-    margin: 5,
-    resizeMode: 'contain',  
+    padding: 5,
+    resizeMode: 'contain',
   }, 
   imageContainer: {
     width: '100%',
@@ -17,13 +16,15 @@ const styles = StyleSheet.create({
     resizeMode: 'contain'
   },
   ratingContainer: {
-
+    padding: 5,
+    paddingBottom: 20,
   },
   rating: {
-
+    padding: 5,
   },
   infoContainer: {
-
+    padding: 5,
+    paddingBottom: 20,
   },
   info: {
     fontFamily: "Georgia, serif",
