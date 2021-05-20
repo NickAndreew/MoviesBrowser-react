@@ -1,23 +1,48 @@
 import  React, {Component} from 'react';
-import { render } from 'react-dom';
 import { View, Text, Image } from 'react-native';
   
 import { styles } from './styles'
 
 const movieInfoUrl = "http://www.omdbapi.com/?apikey=490ffdb4&i="
 
-function MovieImage({poster}) {
-  return (
-    <View style={styles.imageContainer}>
-      <Image style={styles.imageStyle} source={{uri: poster}} />
-    </ View>
-  )
+class MovieImage extends Component  {
+  constructor () {
+    super()
+
+    this.state = {
+      width: null,
+      height: null
+    }
+  }
+
+  componentDidMount() {
+    Image.getSize(this.props.poster, (width, height) => {this.setState({width: width, height: height})});
+  }
+  
+  render() {
+    console.log("Width: " + this.state.width + ", Height: " + this.state.height)
+    if (this.state.width && this.state.height) {
+      return (
+        <View style={{width: this.state.width, height: this.state.height}}>
+          <Image 
+            style={styles.imageStyle}
+            source={{uri: this.props.poster}} />
+        </ View>
+      )    
+    } else {
+      return (
+        <View style={styles.imageContainer}>
+          <Text style={{width: '100%',}}>Image loading...</Text>
+        </ View>
+      )
+    }
+  }
 }
 
 function MovieInfoData({state}) {
   return(
     <View style={styles.infoContainer}>
-      <Text style={styles.info} >Title : {state.title}</Text>
+      <Text style={styles.info}>Title : {state.title}</Text>
       <Text style={styles.info}>Year : {state.year}</Text>
       <Text style={styles.info}>Rated : {state.rated}</Text>
       <Text style={styles.info}>Released : {state.released}</Text>

@@ -4,18 +4,21 @@ const styles = StyleSheet.create({
   container: {
     padding: 5,
     resizeMode: 'contain',
-  }, 
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
   imageContainer: {
     width: '100%',
     height: '100%',
   },
   imageStyle: {
-    flex: 1,
-    width: null,
-    height: null,
+    width: '100%',
+    height: '100%',
     resizeMode: 'contain'
   },
   ratingContainer: {
+    width: '100%',
     padding: 5,
     paddingBottom: 20,
   },

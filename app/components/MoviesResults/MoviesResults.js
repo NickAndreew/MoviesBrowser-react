@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { View, Text, FlatList, ScrollView, SafeAreaView, Image, Button } from 'react-native';
+import { View, Text, FlatList, SafeAreaView, Image, Button } from 'react-native';
 import { styles } from './styles'
 
 import { useNavigation } from '@react-navigation/native';
 
-const MovieResultsItem = ({ movie }) => {
+function MovieResultsItem ({ movie }) {
   const navigation = useNavigation()
 
   return (

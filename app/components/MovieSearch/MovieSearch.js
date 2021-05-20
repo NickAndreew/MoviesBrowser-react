@@ -19,6 +19,12 @@ class MovieSearchBar extends Component {
       page: null
     }
   }
+  
+  componentDidMount() {
+    if (this.props.inputSearch != null) {
+      this.sendSearchRequest(this.props.inputSearch)
+    }
+  }
 
   sendSearchRequest(text) {
     console.log("sendSearchRequest(" + text + ")")
@@ -51,12 +57,14 @@ class MovieSearchBar extends Component {
   }
 
   render() {
+
     return (
       <View style={styles.container}>
         <Text>Hello, I am your component MovieSearch!</Text>
         <TextInput 
           style={styles.inputSearch}
           placeholder="Type Movie you want to find..."
+          defaultValue={this.props.inputSearch}
           onChangeText={(text) => this.setState({
             input: text
           })}
@@ -71,7 +79,6 @@ class MovieSearchBar extends Component {
 class MovieSearch extends Component {
   constructor () {
     super()
-
     this.pagePrefix = '&page='
 
     this.state = {
@@ -136,9 +143,14 @@ class MovieSearch extends Component {
   }
 
   render() {
+    const { input } = this.props.route.params
+
+    console.log(">>>>>>>>>>> " + input)
+
     return(
       <View style={styles.container}>
         <MovieSearchBar 
+          inputSearch={input}
           updateResults={(text, movies, totalResults, error, page) => this.updateResults(text, movies, totalResults, error, page)} />
         <MoviesResults 
           data={this.state.movies} 

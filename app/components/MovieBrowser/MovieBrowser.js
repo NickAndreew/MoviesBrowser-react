@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, Icon, TextInput } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -12,11 +12,16 @@ import MoviesResults from '../MoviesResults/MoviesResults'
 function HomePage({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text>Hello, it's a home page!</Text>
-      <Button
-        title="Go to Movie Search"
-        onPress={() => navigation.navigate('Movie Search')}
-      />
+      <Text style={styles.titleName}>MOOOOVIELE</Text>
+      <View style={styles.searchSection}>
+        <TextInput
+            style={styles.searchBar}
+            placeholder="Search for any movie.."
+            onSubmitEditing={(nativeObject) =>  navigation.navigate('Movie Search', {
+              input: nativeObject.nativeEvent.text
+            })}
+        />
+      </View>
     </View>
   );
 }
