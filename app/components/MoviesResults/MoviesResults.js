@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, FlatList, SafeAreaView, Image, Button } from 'react-native';
+import { View, Text, FlatList, SafeAreaView, Image, Button, TouchableOpacity } from 'react-native';
 import { styles } from './styles'
 
 import { useNavigation } from '@react-navigation/native';
@@ -8,11 +8,13 @@ function MovieResultsItem ({ movie }) {
   const navigation = useNavigation()
 
   return (
-    <View style={styles.item}>
+    <TouchableOpacity style={styles.item} onPress={() => navigation.navigate('Movie Info', {
+      imdbID: movie.imdbID
+    })} >
 
       <View style={styles.itemInfoContainer}>
         <View style={styles.posterCotainer}>
-          <Image style={styles.poster} source={{uri: movie.Poster }}/>
+          <Image style={styles.poster} source={{ uri: movie.Poster }}/>
         </View>
         
         <View style={styles.infoContainer}>
@@ -22,16 +24,14 @@ function MovieResultsItem ({ movie }) {
           <Text style={styles.type}>Type: {movie.Type}</Text>
         </View>
       </View>
-
+{/* 
       <View style={styles.buttonContainer}>
         <Button
           title="Go to Info about this movie.."
-          onPress={() => navigation.navigate('Movie Info', {
-            imdbID: movie.imdbID
-          })}
+          onPress={}
         />
-      </View>
-    </View>
+      </View> */}
+    </ TouchableOpacity>
   )
 }
 
@@ -63,17 +63,19 @@ function MovieResults ({ data, totalResults, error, page, uuidFunction, loadMore
           <Text>There are {totalResults} results :))</Text>
           <MovieResultsList data={data} page={page} uuidFunction={uuidFunction} />
           <View style={styles.buttonContainer}>
-            <Button style={styles.buttonLoadMore}
-              title="Load more results.."
-              color="gray"
-              onPress={() => loadMoreResults()} />
+            <TouchableOpacity
+              color='transparent'
+              onPress={() => loadMoreResults()}>
+                <Text style={styles.buttonLoadMore} >
+                  Load more results..
+                </Text>
+              </TouchableOpacity>
           </ View>
         </View>
       )
     } else {
       return(
         <View style={styles.container}>
-          <Text>Hello, I am your component MovieResults!</Text>
           <Text>There are {totalResults} results :))</Text>
           <MovieResultsList data={data} page={page} uuidFunction={uuidFunction} />
         </View>

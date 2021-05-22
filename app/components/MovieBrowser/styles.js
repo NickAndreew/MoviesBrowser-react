@@ -11,10 +11,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   }, 
   titleName: {
-    
+    padding: 10,
+    paddingBottom: 20,
+    fontSize: 40,
   }, 
   searchBar: {
-
+    fontSize: 17,
+    elevation: 5,
+    borderRadius: 5,
+    shadowColor: "#000",
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
   }
 });
 

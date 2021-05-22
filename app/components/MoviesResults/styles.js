@@ -14,11 +14,15 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     padding: 5,
+    width: '100%',
+    justifyContent: 'center',
+    alignContent: 'center',
   },
   buttonLoadMore: {
     padding: 20,
-    
-    
+    width: '100%',
+    color: 'blue',
+    textAlign: 'center'
   },
   item: {
     padding: 5,

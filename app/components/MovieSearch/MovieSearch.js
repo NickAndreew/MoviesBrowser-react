@@ -60,7 +60,6 @@ class MovieSearchBar extends Component {
 
     return (
       <View style={styles.container}>
-        <Text>Hello, I am your component MovieSearch!</Text>
         <TextInput 
           style={styles.inputSearch}
           placeholder="Type Movie you want to find..."
@@ -70,7 +69,6 @@ class MovieSearchBar extends Component {
           })}
           onSubmitEditing={(nativeObject) => this.sendSearchRequest(nativeObject.nativeEvent.text)}
         />
-        <Button title="Search" onPress={() => this.sendSearchRequest(this.state.input)}/>
       </ View>
     )
   }

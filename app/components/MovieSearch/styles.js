@@ -6,7 +6,15 @@ const styles = StyleSheet.create({
     resizeMode: 'contain'
   }, 
   inputSearch: {
-    borderRadius: 20
+    backgroundColor: 'white',
+    elevation: 5,
+    shadowColor: "#000",
+    shadowOpacity: 0.25,
+    shadowRadius: 1,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
   }
 });
 

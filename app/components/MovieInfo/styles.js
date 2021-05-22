@@ -17,17 +17,19 @@ const styles = StyleSheet.create({
     height: '100%',
     resizeMode: 'contain'
   },
+  infoContainer: {
+    width: '100%',
+    padding: 5,
+    paddingBottom: 20,
+  },
   ratingContainer: {
     width: '100%',
     padding: 5,
     paddingBottom: 20,
   },
   rating: {
+    fontFamily: "Georgia, serif",
     padding: 5,
-  },
-  infoContainer: {
-    padding: 5,
-    paddingBottom: 20,
   },
   info: {
     fontFamily: "Georgia, serif",

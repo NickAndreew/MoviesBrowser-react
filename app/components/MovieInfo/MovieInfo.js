@@ -1,6 +1,6 @@
 import  React, {Component} from 'react';
 import { View, Text, Image } from 'react-native';
-  
+
 import { styles } from './styles'
 
 const movieInfoUrl = "http://www.omdbapi.com/?apikey=490ffdb4&i="
@@ -28,7 +28,7 @@ class MovieImage extends Component  {
             style={styles.imageStyle}
             source={{uri: this.props.poster}} />
         </ View>
-      )    
+      )
     } else {
       return (
         <View style={styles.imageContainer}>
@@ -72,8 +72,8 @@ const RatingInfo = ({ rating }) => {
 
   return (
     <View style={styles.ratingContainer}>
-      <Text style={styles.info}>{ratingInfo.Source}</Text>
-      <Text style={styles.info}>{ratingInfo.Value}</Text>
+      <Text style={styles.rating}>{ratingInfo.Source}</Text>
+      <Text style={styles.rating}>{ratingInfo.Value}</Text>
     </View>
   )
 }
@@ -83,7 +83,7 @@ class MovieRatingsInfo extends Component {
     if (this.props.ratings != null) {
       return(
         <View style={styles.ratingContainer}>
-          <Text style={styles.info}>Ratings:</Text>
+          <Text style={styles.rating}>Ratings:</Text>
           { this.props.ratings.map((rating, index) => <RatingInfo key={index} rating={rating} />) }
         </View>
       )
