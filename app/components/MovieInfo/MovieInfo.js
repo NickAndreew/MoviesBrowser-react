@@ -42,27 +42,27 @@ class MovieImage extends Component  {
 function MovieInfoData({state}) {
   return(
     <View style={styles.infoContainer}>
-      <Text style={styles.info}>Title : {state.title}</Text>
-      <Text style={styles.info}>Year : {state.year}</Text>
-      <Text style={styles.info}>Rated : {state.rated}</Text>
-      <Text style={styles.info}>Released : {state.released}</Text>
-      <Text style={styles.info}>Runtime : {state.runtime}</Text>
-      <Text style={styles.info}>Genre : {state.genre}</Text>
-      <Text style={styles.info}>Director : {state.director}</Text>
-      <Text style={styles.info}>Actors : {state.actors}</Text>
-      <Text style={styles.info}>Plot : {state.plot}</Text>
-      <Text style={styles.info}>Language : {state.language}</Text>
-      <Text style={styles.info}>Country : {state.country}</Text>
-      <Text style={styles.info}>Awards : {state.awards}</Text>
-      <Text style={styles.info}>Metascore : {state.metascore}</Text>
-      <Text style={styles.info}>imdbRating : {state.imdbRating}</Text>
-      <Text style={styles.info}>imdbVotes : {state.imdbVotes}</Text>
-      <Text style={styles.info}>imdbID : {state.imdbID}</Text>
-      <Text style={styles.info}>DVD : {state.dvd}</Text>
-      <Text style={styles.info}>BoxOffice : {state.boxOffice}</Text>
-      <Text style={styles.info}>Production : {state.production}</Text>
-      <Text style={styles.info}>Website : {state.website}</Text>
-      <Text style={styles.info}>Response : {state.response}</Text>
+      <Text style={styles.title}>Title : <Text style={styles.info}>{state.title}</Text></Text>
+      <Text style={styles.title}>Year : <Text style={styles.info}>{state.year}</Text></Text>
+      <Text style={styles.title}>Rated : <Text style={styles.info}>{state.rated}</Text></Text>
+      <Text style={styles.title}>Released : <Text style={styles.info}>{state.released}</Text></Text>
+      <Text style={styles.title}>Runtime : <Text style={styles.info}>{state.runtime}</Text></Text>
+      <Text style={styles.title}>Genre : <Text style={styles.info}>{state.genre}</Text></Text>
+      <Text style={styles.title}>Director : <Text style={styles.info}>{state.director}</Text></Text>
+      <Text style={styles.title}>Actors : <Text style={styles.info}>{state.actors}</Text></Text>
+      <Text style={styles.title}>Language : <Text style={styles.info}>{state.language}</Text></Text>
+      <Text style={styles.title}>Country : <Text style={styles.info}>{state.country}</Text></Text>
+      <Text style={styles.title}>Awards : <Text style={styles.info}>{state.awards}</Text></Text>
+      <Text style={styles.title}>Metascore : <Text style={styles.info}>{state.metascore}</Text></Text>
+      <Text style={styles.title}>imdbRating : <Text style={styles.info}>{state.imdbRating}</Text></Text>
+      <Text style={styles.title}>imdbVotes : <Text style={styles.info}>{state.imdbVotes}</Text></Text>
+      <Text style={styles.title}>imdbID : <Text style={styles.info}>{state.imdbID}</Text></Text>
+      <Text style={styles.title}>DVD : <Text style={styles.info}>{state.dvd}</Text></Text>
+      <Text style={styles.title}>BoxOffice : <Text style={styles.info}>{state.boxOffice}</Text></Text>
+      <Text style={styles.title}>Production : <Text style={styles.info}>{state.production}</Text></Text>
+      <Text style={styles.title}>Website : <Text style={styles.info}>{state.website}</Text></Text>
+      <Text style={styles.title}>Response : <Text style={styles.info}>{state.response}</Text></Text>
+      <Text style={styles.title}>Plot : <Text style={styles.info}>{state.plot}</Text></Text>
     </View>          
   )
 }
@@ -72,7 +72,7 @@ const RatingInfo = ({ rating }) => {
 
   return (
     <View style={styles.ratingContainer}>
-      <Text style={styles.rating}>{ratingInfo.Source}</Text>
+      <Text style={styles.ratingTitle}>{ratingInfo.Source}</Text>
       <Text style={styles.rating}>{ratingInfo.Value}</Text>
     </View>
   )
@@ -168,11 +168,13 @@ class MovieInfoPage extends Component {
   render() {
     if (this.state.loaded) {
       return (
-        <View style={styles.container}>        
-          <MovieImage poster={this.state.poster} />
-          <MovieInfoData state={this.state} />
-          <MovieRatingsInfo ratings={this.state.ratings} />
-        </ View>
+        <View style={styles.container}>
+          <View style={styles.contentContainer}>        
+            <MovieImage poster={this.state.poster} />
+            <MovieInfoData state={this.state} />
+            <MovieRatingsInfo ratings={this.state.ratings} />
+          </ View>
+        </View>
       )
     } else {
       return (

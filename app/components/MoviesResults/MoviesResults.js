@@ -14,23 +14,18 @@ function MovieResultsItem ({ movie }) {
 
       <View style={styles.itemInfoContainer}>
         <View style={styles.posterCotainer}>
-          <Image style={styles.poster} source={{ uri: movie.Poster }}/>
+          <Image 
+            style={styles.poster} 
+            source={{ uri: movie.Poster }} />
         </View>
         
         <View style={styles.infoContainer}>
-          <Text style={styles.title}>Title: {movie.Title}</Text>
-          <Text style={styles.year}>Year: {movie.Year}</Text>
-          <Text style={styles.imdbID}>IMDB ID: {movie.imdbID}</Text>
-          <Text style={styles.type}>Type: {movie.Type}</Text>
+          <View style={styles.infoTitlesContainer}><Text style={styles.infoTitle}>Title: <Text style={styles.info}>{movie.Title}</Text></Text></View>
+          <View style={styles.infoTitlesContainer}><Text style={styles.infoTitle}>Year: <Text style={styles.info}>{movie.Year}</Text></Text></View>
+          {/* <View style={styles.infoTitlesContainer}><Text style={styles.infoTitle}>IMDB ID: <Text style={styles.info}>{movie.imdbID}</Text></Text></View> */}
+          <View style={styles.infoTitlesContainer}><Text style={styles.infoTitle}>Type: <Text style={styles.info}>{movie.Type}</Text></Text></View>
         </View>
       </View>
-{/* 
-      <View style={styles.buttonContainer}>
-        <Button
-          title="Go to Info about this movie.."
-          onPress={}
-        />
-      </View> */}
     </ TouchableOpacity>
   )
 }

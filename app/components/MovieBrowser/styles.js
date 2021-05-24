@@ -9,16 +9,19 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'white',
   }, 
   titleName: {
     padding: 10,
     paddingBottom: 20,
     fontSize: 40,
+    textAlign: 'center'
   }, 
   searchBar: {
-    fontSize: 17,
+    fontSize: 19,
     elevation: 5,
-    borderRadius: 5,
+    borderRadius: 20,
+    borderColor: 'transparent',
     shadowColor: "#000",
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
@@ -26,7 +29,10 @@ const styles = StyleSheet.create({
       width: 0,
       height: 2,
     },
-  }
+  },
+  searchSection: {
+    width: '80%'
+  },
 });
 
 export { styles };
