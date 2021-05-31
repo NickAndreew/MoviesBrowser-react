@@ -37,14 +37,16 @@ function MovieResultsList ({ data, uuidFunction }) {
   );
 
   return (
-    <SafeAreaView>
-      <FlatList
-        data={data}
-        extraData={data}
-        renderItem={renderItem}
-        keyExtractor={ item => uuidFunction() } 
-      />
-    </SafeAreaView>
+    <View style={styles.resultsContainer}>
+      <SafeAreaView>
+        <FlatList
+          data={data}
+          extraData={data}
+          renderItem={renderItem}
+          keyExtractor={ item => uuidFunction() } 
+        />
+      </SafeAreaView>
+    </View>
   )
 }
 

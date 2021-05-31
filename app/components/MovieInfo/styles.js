@@ -2,19 +2,20 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-  },
-  contentContainer: {
     width: '100%',
-    padding: 5,
     resizeMode: 'contain',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
   },
   imageContainer: {
+    flex: 1,
     width: '100%',
-    height: '100%',
-    resizeMode: 'contain'
+    height: 'auto',
+    flexDirection: 'row',
+    resizeMode: 'contain',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   imageStyle: {
     flex: 1,
@@ -23,12 +24,15 @@ const styles = StyleSheet.create({
     resizeMode: 'contain'
   },
   infoContainer: {
-    width: '100%',
+    flex: 1,
     padding: 5,
     paddingBottom: 20,
+    // backgroundColor: '#e4e6e89c',
+    backgroundColor: 'rgba(228, 230, 232, 0.14)'
   },
   ratingContainer: {
-    width: '100%',
+    flex: 1,
+    width: 'auto',
     padding: 5,
     paddingBottom: 20,
   },
@@ -40,13 +44,23 @@ const styles = StyleSheet.create({
   rating: {
     fontFamily: "Georgia, serif",
     padding: 5,
+    color: 'white',
   },
   title: {
     color: 'rgb(207, 157, 96)',
   },
   info: {
     fontFamily: "Georgia, serif",
-    color: 'black',
+    color: 'white',
+  },
+  image: {
+    flex: 1,
+    width: '100%',
+    resizeMode: 'contain',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white',
   },
 });
 

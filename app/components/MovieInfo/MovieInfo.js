@@ -1,9 +1,13 @@
 import  React, {Component} from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, ImageBackground } from 'react-native';
 
-import { styles } from './styles'
+import { styles } from './styles';
+
+import { useNavigation } from '@react-navigation/native';
 
 const movieInfoUrl = "http://www.omdbapi.com/?apikey=490ffdb4&i="
+
+const image = {uri: "https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1951&q=80"}
 
 class MovieImage extends Component  {
   constructor () {
@@ -23,10 +27,12 @@ class MovieImage extends Component  {
     console.log("Width: " + this.state.width + ", Height: " + this.state.height)
     if (this.state.width && this.state.height) {
       return (
-        <View style={{width: this.state.width, height: this.state.height}}>
-          <Image 
-            style={styles.imageStyle}
-            source={{uri: this.props.poster}} />
+        <View style={styles.imageContainer}>
+          <View style={{width: this.state.width, height: this.state.height}}>
+            <Image 
+              style={styles.imageStyle}
+              source={{uri: this.props.poster}} />
+          </ View>
         </ View>
       )
     } else {
@@ -42,6 +48,8 @@ class MovieImage extends Component  {
 function MovieInfoData({state}) {
   return(
     <View style={styles.infoContainer}>
+      <MovieImage poster={state.poster} />
+      
       <Text style={styles.title}>Title : <Text style={styles.info}>{state.title}</Text></Text>
       <Text style={styles.title}>Year : <Text style={styles.info}>{state.year}</Text></Text>
       <Text style={styles.title}>Rated : <Text style={styles.info}>{state.rated}</Text></Text>
@@ -63,7 +71,9 @@ function MovieInfoData({state}) {
       <Text style={styles.title}>Website : <Text style={styles.info}>{state.website}</Text></Text>
       <Text style={styles.title}>Response : <Text style={styles.info}>{state.response}</Text></Text>
       <Text style={styles.title}>Plot : <Text style={styles.info}>{state.plot}</Text></Text>
-    </View>          
+
+      <MovieRatingsInfo ratings={state.ratings} />
+    </View>
   )
 }
 
@@ -100,7 +110,7 @@ class MovieRatingsInfo extends Component {
 class MovieInfoPage extends Component {
   constructor() {
     super()
-
+    
     this.state = {
       title: null,
       year: null, 
@@ -161,6 +171,11 @@ class MovieInfoPage extends Component {
     })
     .catch((error) => console.error(error))
     .finally(() => {
+      this.props.navigation.setOptions({ 
+        title: this.state.title, 
+        headerStyle: {
+          backgroundColor: '#e3eaea',
+        }})
       console.log("Movie info has been loaded")
     });
   }
@@ -168,29 +183,25 @@ class MovieInfoPage extends Component {
   render() {
     if (this.state.loaded) {
       return (
-        <View style={styles.container}>
-          <View style={styles.contentContainer}>        
-            <MovieImage poster={this.state.poster} />
-            <MovieInfoData state={this.state} />
-            <MovieRatingsInfo ratings={this.state.ratings} />
-          </ View>
-        </View>
+        <MovieInfoData state={this.state} />
       )
     } else {
       return (
-        <View style={styles.container}>
-          <Text>Loading...</Text>
-        </ View>
+        <Text>Loading...</Text>
       )
     }
   }
 }
 
-function MovieInfo ({ route }) {
+function MovieInfo ({ route, navigation }) {
   const { imdbID } = route.params;
 
   return(
-    <MovieInfoPage imdbID={imdbID} />
+    <View style={styles.container}>
+      <ImageBackground source={image} style={styles.image}>
+        <MovieInfoPage imdbID={imdbID} navigation={navigation}/>
+      </ImageBackground>
+    </View>
   )
 }
 

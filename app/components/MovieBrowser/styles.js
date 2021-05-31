@@ -2,23 +2,20 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    padding: 5,
     height: '100%',
     width: '100%',
-    resizeMode: 'contain',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'white',
   }, 
   titleName: {
     padding: 10,
     paddingBottom: 20,
     fontSize: 40,
-    textAlign: 'center'
+    textAlign: 'center',
+    color: 'white'
   }, 
   searchBar: {
-    fontSize: 19,
+    fontSize: 15,
+    textAlign: 'center',
+    backgroundColor: 'white',
     elevation: 5,
     borderRadius: 20,
     borderColor: 'transparent',
@@ -32,6 +29,15 @@ const styles = StyleSheet.create({
   },
   searchSection: {
     width: '80%'
+  },
+  image: {
+    flex: 1,
+    width: '100%',
+    resizeMode: 'contain',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white',
   },
 });
 

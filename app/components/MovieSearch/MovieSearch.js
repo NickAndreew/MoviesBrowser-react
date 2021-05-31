@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
-import { View, Text, TextInput, Button, TouchableHighlightBase } from 'react-native';
+import { View, Text, TextInput, Button, TouchableHighlightBase, ImageBackground } from 'react-native';
 
 import { styles } from './styles'
 
 import MoviesResults from '../MoviesResults/MoviesResults'
 
 const searchUrlBase = 'http://www.omdbapi.com/?apikey=490ffdb4&s='
+
+const image = {uri: "https://images.unsplash.com/photo-1543536448-d209d2d13a1c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"}
+
+// const image = {uri: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80"}
 
 class MovieSearchBar extends Component {
   constructor() {
@@ -57,9 +61,8 @@ class MovieSearchBar extends Component {
   }
 
   render() {
-
     return (
-      <View style={styles.container}>
+      <View style={styles.inputContainer}>
         <TextInput 
           style={styles.inputSearch}
           placeholder="Type Movie you want to find..."
@@ -147,16 +150,18 @@ class MovieSearch extends Component {
 
     return(
       <View style={styles.container}>
-        <MovieSearchBar 
-          inputSearch={input}
-          updateResults={(text, movies, totalResults, error, page) => this.updateResults(text, movies, totalResults, error, page)} />
-        <MoviesResults 
-          data={this.state.movies} 
-          totalResults={this.state.totalResults}
-          error={this.state.error} 
-          page={this.state.page}
-          uuidFunction={() => this.uuidv4()} 
-          loadMoreResults={() => this.loadMoreResults()}/>        
+        <ImageBackground source={image} style={styles.image} imageStyle={{ resizeMode: 'repeat' }}>
+          <MovieSearchBar 
+            inputSearch={input}
+            updateResults={(text, movies, totalResults, error, page) => this.updateResults(text, movies, totalResults, error, page)} />
+          <MoviesResults 
+            data={this.state.movies} 
+            totalResults={this.state.totalResults}
+            error={this.state.error} 
+            page={this.state.page}
+            uuidFunction={() => this.uuidv4()} 
+            loadMoreResults={() => this.loadMoreResults()}/>       
+          </ImageBackground>
       </View>
     )
   }

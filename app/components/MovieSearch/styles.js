@@ -2,9 +2,11 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    padding: 5,
     resizeMode: 'contain'
   }, 
+  inputContainer: {
+    padding: 10
+  },
   inputSearch: {
     backgroundColor: 'white',
     elevation: 5,
@@ -15,6 +17,14 @@ const styles = StyleSheet.create({
     shadowOffset: {
       width: 0,
       height: 2,
+    },
+    image: {
+      flex: 1,
+      resizeMode: 'repeat',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: 'white',
     },
   }
 });

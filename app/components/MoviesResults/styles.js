@@ -1,19 +1,26 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+
+const windowHeight = Dimensions.get('screen').height;
 
 const styles = StyleSheet.create({
   container: {
     padding: 5,
-    resizeMode: 'contain'
+    width: '100%',
+    minHeight: windowHeight,
+  },
+  resultsContainer: {
+    minWidth: '80%',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'stretch',
   },
   itemInfoContainer: {
     height: 'auto',
     flexDirection: 'row',
     resizeMode: 'contain',
-    // justifyContent: 'space-between',
   },
   infoContainer: {
     flex: 1,
-    // width: '65%',
     padding: 5,
     height: 210,
   },
@@ -30,12 +37,16 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   item: {
+    width: '100%',
     padding: 5,
-    flexDirection: 'column'
+    margin: 5,
+    borderRadius: 10,
+    flexDirection: 'column',
+    // backgroundColor: '#e4e6e89c',
+    backgroundColor: 'rgba(228, 230, 232, 0.18)'
   },
   posterCotainer: {
     flex: 1,
-    // width: '45%',
     height: '100%',
     resizeMode: 'contain',
   },
