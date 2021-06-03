@@ -3,8 +3,6 @@ import { View, Text, Image, ImageBackground } from 'react-native';
 
 import { styles } from './styles';
 
-import { useNavigation } from '@react-navigation/native';
-
 const movieInfoUrl = "http://www.omdbapi.com/?apikey=490ffdb4&i="
 
 const image = {uri: "https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1951&q=80"}
@@ -45,11 +43,9 @@ class MovieImage extends Component  {
   }
 }
 
-function MovieInfoData({state}) {
-  return(
-    <View style={styles.infoContainer}>
-      <MovieImage poster={state.poster} />
-      
+function MovieInfoDetails({state}) {
+  return (
+    <View style={styles.infoDetailsContainer}>
       <Text style={styles.title}>Title : <Text style={styles.info}>{state.title}</Text></Text>
       <Text style={styles.title}>Year : <Text style={styles.info}>{state.year}</Text></Text>
       <Text style={styles.title}>Rated : <Text style={styles.info}>{state.rated}</Text></Text>
@@ -71,7 +67,15 @@ function MovieInfoData({state}) {
       <Text style={styles.title}>Website : <Text style={styles.info}>{state.website}</Text></Text>
       <Text style={styles.title}>Response : <Text style={styles.info}>{state.response}</Text></Text>
       <Text style={styles.title}>Plot : <Text style={styles.info}>{state.plot}</Text></Text>
+    </View>
+  )
+}
 
+function MovieInfoData({state}) {
+  return(
+    <View style={styles.infoContainer}>
+      <MovieImage poster={state.poster} />
+      <MovieInfoDetails state={state} />
       <MovieRatingsInfo ratings={state.ratings} />
     </View>
   )

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, FlatList, SafeAreaView, Image, Button, TouchableOpacity } from 'react-native';
+import { View, Text, FlatList, SafeAreaView, Image, TouchableOpacity } from 'react-native';
 import { styles } from './styles'
 
 import { useNavigation } from '@react-navigation/native';
@@ -22,7 +22,6 @@ function MovieResultsItem ({ movie }) {
         <View style={styles.infoContainer}>
           <View style={styles.infoTitlesContainer}><Text style={styles.infoTitle}>Title: <Text style={styles.info}>{movie.Title}</Text></Text></View>
           <View style={styles.infoTitlesContainer}><Text style={styles.infoTitle}>Year: <Text style={styles.info}>{movie.Year}</Text></Text></View>
-          {/* <View style={styles.infoTitlesContainer}><Text style={styles.infoTitle}>IMDB ID: <Text style={styles.info}>{movie.imdbID}</Text></Text></View> */}
           <View style={styles.infoTitlesContainer}><Text style={styles.infoTitle}>Type: <Text style={styles.info}>{movie.Type}</Text></Text></View>
         </View>
       </View>

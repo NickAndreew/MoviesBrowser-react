@@ -2,12 +2,24 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    resizeMode: 'contain'
-  }, 
+    resizeMode: 'contain',
+  },
   inputContainer: {
-    padding: 10
+    width: '95%',
+    padding: 10,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start'
+  },
+  searchAndResultsContainer: {
+    flex: 1, 
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
   },
   inputSearch: {
+    padding: 4,
+    minWidth: '40%',
     backgroundColor: 'white',
     elevation: 5,
     borderRadius: 20,

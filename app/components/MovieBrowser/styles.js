@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
     color: 'white'
   }, 
   searchBar: {
+    padding: 5,
     fontSize: 15,
     textAlign: 'center',
     backgroundColor: 'white',

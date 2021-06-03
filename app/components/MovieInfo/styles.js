@@ -24,11 +24,11 @@ const styles = StyleSheet.create({
     resizeMode: 'contain'
   },
   infoContainer: {
+    minWidth: '70%',
     flex: 1,
     padding: 5,
     paddingBottom: 20,
-    // backgroundColor: '#e4e6e89c',
-    backgroundColor: 'rgba(228, 230, 232, 0.14)'
+    backgroundColor: 'rgba(228, 230, 232, 0.28)'
   },
   ratingContainer: {
     flex: 1,
@@ -45,6 +45,10 @@ const styles = StyleSheet.create({
     fontFamily: "Georgia, serif",
     padding: 5,
     color: 'white',
+  },
+  infoDetailsContainer: {
+    flex: 1,
+    padding: 10,
   },
   title: {
     color: 'rgb(207, 157, 96)',
